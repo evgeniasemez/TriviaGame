@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trivia Game</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
+</head>
+
+<body>
+    <div class="container text-centered">
+        <h1>Trivia Game</h1>
+        <div class="row text-centered">
+            <div id="startbutton">
+                <button type="button" style="width: 100%;height: 80px;" class="btn btn-primary btn-lg">Start the Game</button>
+            </div>
+            <div class="secondcard">
+                <div class="time_remaining">
+                    <h2>Time Remaining: <span id="remaining_timer">30</span> Seconds</h2>
+                </div>
+                <div class="question">
+                    <div id="question_itself"><h4>What city do you live in?</h4></div>
+                    <div class ="firstOptionClass" id="first_option">
+                        <h4>Redmond</h4>
+                    </div>
+                    <div class ="firstOptionClass" id="second_option">
+                        <h4>Seattle</h4>
+                    </div>
+                    <div class ="firstOptionClass" id="third_option">
+                        <h4>Bellevue</h4>
+                    </div>
+                    <div class ="firstOptionClass"id="fourth_option">
+                        <h4>Kirkland</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
