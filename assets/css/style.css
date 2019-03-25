@@ -12,8 +12,30 @@
 .secondcard{
     display: none;
 }
+.correctAnswerCard{
+    display: none;
+}
+.wrongAnswerCard{
+    display: none;
+}
+.thirdcard{
+    display: none;
+}
+.correctAnswerTitle{
+    display: none;
+}
+.wrongAnswerTitle{
+    display: none;
+}
+.timeOutCard{
+    display: none;
+}
+/* .thirdcard{
+    display: none;
+} */
+
 .firstOptionClass:hover{
-background-color: blue;
+background-color: #82c5db;
 }
 .firstOptionClass{
     font-family: none;
@@ -22,6 +44,12 @@ background-color: blue;
     font-family: none;
 }
 #question_itself{
+    font-family: none;
+}
+.correctOption{
+    font-family: none;
+}
+#correctAnswerFont{
     font-family: none;
 }
 .backgroundcolor{

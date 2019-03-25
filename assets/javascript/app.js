@@ -45,16 +45,47 @@ $(document).ready(function () {
     timer1 = setInterval(textFunc, 150); // Every 150 milliseconds
 
 
-
+    // setting the button click and navigation to the next block 
     $("#startbutton").on("click", function () {
         $("#startbutton").html("");
         $(".secondcard").css({ display: "block" });
         runtimer();
     });
 
+    $("#third_option").on("click", function () {
+        $(".question").css({ display: "none" });
+        $(".correctAnswerTitle").css({ display: "block" });
+        correctOption();
+        setTimeout(nextQuestion, 5000);
+        stop();
+    });
+    $("#first_option").on("click", function () {
+        $(".question").css({ display: "none" });
+        $(".wrongAnswerTitle").css({ display: "block" });
+        correctOption();
+        setTimeout(nextQuestion, 5000);
+        stop();
+    });
+    $("#second_option").on("click", function () {
+        $(".question").css({ display: "none" });
+        $(".wrongAnswerTitle").css({ display: "block" });
+        correctOption();
+        setTimeout(nextQuestion, 5000);
+        stop();
+    });
+    $("#fourth_option").on("click", function () {
+        $(".question").css({ display: "none" });
+        $(".wrongAnswerTitle").css({ display: "block" });
+        nextQuestion();
+        setTimeout(nextQuestion, 5000);
+        stop();
+    });
+
+
     var intervalId;
     var timeRemaining;
 
+    // setting a timer
     $("#remaining_timer").text("30");
     function runtimer() {
         timeRemaining = 30;
@@ -62,6 +93,7 @@ $(document).ready(function () {
         intervalId = setInterval(decrement, 1000);
     }
 
+    // creating a decrement function
     function decrement() {
         //  Decrease number by one.
         timeRemaining--;
@@ -72,13 +104,16 @@ $(document).ready(function () {
 
         //  Once number hits zero...
         if (timeRemaining === 0) {
-
+            $(".timeOutCard").css({ display: "block" });
+            $(".question").css({ display: "none" });
             //  ...run the stop function.
+            correctOption();
             stop();
 
             //  Alert the user that time is up.
-            alert("Time Up!");
+            // alert("Time Up!");
         }
+
     }
 
     function stop() {
@@ -89,12 +124,32 @@ $(document).ready(function () {
         clearInterval(intervalId);
     }
 
+    function reset() {
+        $("#remaining_timer").text("30");
+        runtimer();
+    }
+    function correctOption() {
+        $(".correctOption").text("Bright orange");
+    }
+
+    function nextQuestion() {
+        $("#question_itself").html("<h4>How many fingers (including thumbs) does SpongeBob have?</h4>");
+        $("#first_option").html("<h4>10</h4>");
+        $("#second_option").html("<h4>12</h4>");
+        $("#third_option").html("<h4>8</h4>");
+        $("#fourth_option").html("<h4>6</h4>");
+        $(".question").css({ display: "block" });
+        $(".wrongAnswerTitle").css({ display: "none" });
+        $(".correctAnswerTitle").css({ display: "none" });
+    }
+    // setTimeout(nextQuestion, 5000);
 
 
 
 
 
-    
+
+
 
     // var correctAnswers = 0;
     // var incorrectAnswers = 0;
@@ -122,7 +177,7 @@ $(document).ready(function () {
     //     br2.appendTo("#question_form");
     //     s.appendTo("#question_form");
 
-    //     $("select.answers").change(function () {
+    //     $(".firstOptionClass").change(function () {
     //         var selectedAnswer = $(this).children("option:selected").val();
     //         verifyAnswer(selectedAnswer, correctAnswer, iteration);
     //     });
