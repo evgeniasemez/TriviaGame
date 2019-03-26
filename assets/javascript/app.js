@@ -54,29 +54,49 @@ $(document).ready(function () {
 
     $("#third_option").on("click", function () {
         $(".question").css({ display: "none" });
-        $(".correctAnswerTitle").css({ display: "block" });
+        if (arrayOfQuestions[nextstep].rightOption === 2) {
+            $(".correctAnswerTitle").css({ display: "block" });
+        }
+        else {
+            $(".wrongAnswerTitle").css({ display: "block" });
+        }
         correctOption();
         setTimeout(nextQuestion, 5000);
         stop();
     });
     $("#first_option").on("click", function () {
         $(".question").css({ display: "none" });
-        $(".wrongAnswerTitle").css({ display: "block" });
+        if (arrayOfQuestions[nextstep].rightOption === 0) {
+            $(".correctAnswerTitle").css({ display: "block" });
+        }
+        else {
+            $(".wrongAnswerTitle").css({ display: "block" });
+        }
         correctOption();
         setTimeout(nextQuestion, 5000);
         stop();
     });
     $("#second_option").on("click", function () {
         $(".question").css({ display: "none" });
-        $(".wrongAnswerTitle").css({ display: "block" });
+        if (arrayOfQuestions[nextstep].rightOption === 1) {
+            $(".correctAnswerTitle").css({ display: "block" });
+        }
+        else {
+            $(".wrongAnswerTitle").css({ display: "block" });
+        }
         correctOption();
         setTimeout(nextQuestion, 5000);
         stop();
     });
     $("#fourth_option").on("click", function () {
         $(".question").css({ display: "none" });
-        $(".wrongAnswerTitle").css({ display: "block" });
-        nextQuestion();
+        if (arrayOfQuestions[nextstep].rightOption === 3) {
+            $(".correctAnswerTitle").css({ display: "block" });
+        }
+        else {
+            $(".wrongAnswerTitle").css({ display: "block" });
+        }
+        correctOption();
         setTimeout(nextQuestion, 5000);
         stop();
     });
@@ -106,6 +126,8 @@ $(document).ready(function () {
         if (timeRemaining === 0) {
             $(".timeOutCard").css({ display: "block" });
             $(".question").css({ display: "none" });
+
+            setTimeout(nextQuestion, 5000);
             //  ...run the stop function.
             correctOption();
             stop();
@@ -129,100 +151,44 @@ $(document).ready(function () {
         runtimer();
     }
     function correctOption() {
-        $(".correctOption").text("Bright orange");
+        var questionObject = arrayOfQuestions[nextstep];
+        $(".correctOption").html(questionObject.Options[questionObject.rightOption]);
     }
 
     function nextQuestion() {
-        $("#question_itself").html("<h4>How many fingers (including thumbs) does SpongeBob have?</h4>");
-        $("#first_option").html("<h4>10</h4>");
-        $("#second_option").html("<h4>12</h4>");
-        $("#third_option").html("<h4>8</h4>");
-        $("#fourth_option").html("<h4>6</h4>");
+        nextstep++;
+
+        $("#question_itself").html("<h4>" + arrayOfQuestions[nextstep].Question + "</h4>");
+        $("#first_option").html("<h4>" + arrayOfQuestions[nextstep].Options[0] + "</h4>");
+        $("#second_option").html("<h4>" + arrayOfQuestions[nextstep].Options[1] + "</h4>");
+        $("#third_option").html("<h4>" + arrayOfQuestions[nextstep].Options[2] + "</h4>");
+        $("#fourth_option").html("<h4>" + arrayOfQuestions[nextstep].Options[3] + "</h4>");
         $(".question").css({ display: "block" });
         $(".wrongAnswerTitle").css({ display: "none" });
         $(".correctAnswerTitle").css({ display: "none" });
+        $(".timeOutCard").css({ display: "none" });
+        $(".resultCard").css({ display: "block" });
+        reset();
     }
-    // setTimeout(nextQuestion, 5000);
 
+    var arrayOfQuestions = [{
+        Question: "What color are aircraft black boxes?",
+        Options: ["Black", "Yeallow", "Bright Orange", "Blue"],
+        rightOption: 2
+    }, {
+        Question: "How many fingers (including thumbs) does SpongeBob have?",
+        Options: ["12", "10", "8", "6"],
+        rightOption: 2
+    }, {
+        Question: "Which country was the Caesar salad invented in?",
+        Options: ["Mexico", "Cyprus", "USA", "France"],
+        rightOption: 0
+    }, {
+        Question: "From which country do French fries originate?",
+        Options: ["USA", "Peru", "Amsterdam", "Belgium"],
+        rightOption: 3
+    }
+    ];
+    var nextstep = 0;
 
-
-
-
-
-
-
-    // var correctAnswers = 0;
-    // var incorrectAnswers = 0;
-    // var iteration = 0;
-    // var question = "Is Evgenia Cute?";
-    // var answersString = "No,Could be better,Ugly,Yes,I do not want to see her,Worst";
-    // var correctAnswer = 3;
-    // iteration = iteration + 1;
-    // createQuestions(question, answersString, correctAnswer, iteration);
-
-    // function createQuestions(question, answersString, correctAnswer, iteration) {
-    //     var q = $("<label>", { text: question }, "</label>");
-    //     var br1 = $("<br></br");
-    //     var br2 = $("<br></br");
-
-    //     var data = answersString.split(',');
-
-    //     var s = $("<select class=\"answers\" id=\"selectId\" name=\"selectName\" />");
-
-    //     for (var val in data) {
-    //         $("<option />", { value: val, text: data[val] }).appendTo(s);
-    //     }
-    //     q.appendTo("#question_form");
-    //     br1.appendTo("#question_form");
-    //     br2.appendTo("#question_form");
-    //     s.appendTo("#question_form");
-
-    //     $(".firstOptionClass").change(function () {
-    //         var selectedAnswer = $(this).children("option:selected").val();
-    //         verifyAnswer(selectedAnswer, correctAnswer, iteration);
-    //     });
-    // }
-
-    // function verifyAnswer(answer, correctAnswer, iteration) {
-    //     var textLabel = "";
-
-    //     if (answer == correctAnswer) {
-    //         textLabel = " Correct answer";
-    //         correctAnswers = correctAnswers + 1;
-    //     }
-    //     else {
-    //         textLabel = " Incorrect answer";
-    //         incorrectAnswers = incorrectAnswers + 1;
-    //     }
-
-    //     var q = $("<label>", { text: textLabel }, "</label>");
-    //     var br1 = $("<br></br");
-    //     var br2 = $("<br></br");
-
-    //     br1.appendTo("#question_form");
-    //     q.appendTo("#question_form");
-    //     br2.appendTo("#question_form");
-
-    //     window.setTimeout(function () {
-    //         if (iteration == 1) {
-    //             var question = "Question2";
-    //             var answersString = "1,2,3,4,5,6";
-    //             var correctAnswer = 2;
-    //             iteration = iteration + 1;
-    //             createQuestions(question, answersString, correctAnswer, iteration);
-    //         }
-    //         else if (iteration == 2) {
-    //             var question = "Question3";
-    //             var answersString = "11,12,13,14,15,16";
-    //             var correctAnswer = 3;
-    //             iteration = iteration + 1;
-    //             createQuestions(question, answersString, correctAnswer, iteration);
-    //         }
-    //         else {
-    //             var message = "Done. " + "Correct Answers = " + correctAnswers + ", Incorrect Answers = " + incorrectAnswers;
-    //             alert(message);
-    //         }
-
-    //     }, 3000);
-    // }
 });

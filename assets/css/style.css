@@ -30,6 +30,15 @@
 .timeOutCard{
     display: none;
 }
+.fourthcard{
+    display: none;
+}
+.fifthcard{
+    display: none;
+}
+.resultCard{
+    display: none;
+}
 /* .thirdcard{
     display: none;
 } */
