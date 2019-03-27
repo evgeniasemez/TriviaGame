@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // setting the animated title
     var message = "Trivia Game";
     var msgCount = 0;
     var blinkCount = 0;
@@ -40,10 +41,9 @@ $(document).ready(function () {
             clearInterval(timer2);
         }
     }
-
-
     timer1 = setInterval(textFunc, 150); // Every 150 milliseconds
 
+    // creating variables for the results view page
     var correctAnswer = 0;
     var wrongAnswer = 0;
     var unansweredAnswer = 0;
@@ -65,7 +65,7 @@ $(document).ready(function () {
         reset();
         resetNumbers();
     });
-
+    // setting the options correct/wrong/count of answers
     $("#third_option").on("click", function () {
 
         $(".question").css({ display: "none" });
@@ -130,7 +130,7 @@ $(document).ready(function () {
         $(".resultCard").css({ display: "none" });
     });
 
-
+    // creating variables for the timer
     var intervalId;
     var timeRemaining;
 
@@ -175,16 +175,17 @@ $(document).ready(function () {
         //  to the clearInterval function.
         clearInterval(intervalId);
     }
-
+    // cretaing a reset function, so the timer starts from 30 seconds 
     function reset() {
         $("#remaining_timer").text("30");
         runtimer();
     }
+    // setting a function correct option
     function correctOption() {
         var questionObject = arrayOfQuestions[nextstep];
         $(".correctOption").html(questionObject.Options[questionObject.rightOption]);
     }
-
+    // setting the logic to go to a next question 
     function nextQuestion() {
         nextstep++;
         if (nextstep > 3) {
@@ -211,10 +212,10 @@ $(document).ready(function () {
             reset();
         }
     }
-
+    // creating an array-oject of question and answers and the right answer
     var arrayOfQuestions = [{
         Question: "What color are aircraft black boxes?",
-        Options: ["Black", "Yeallow", "Bright Orange", "Blue"],
+        Options: ["Black", "Yellow", "Bright Orange", "Blue"],
         rightOption: 2
     }, {
         Question: "How many fingers (including thumbs) does SpongeBob have?",
@@ -231,12 +232,10 @@ $(document).ready(function () {
     }
     ];
     var nextstep = 0;
-
+    // creating a function that resets result numbers
     function resetNumbers() {
         correctAnswer = 0;
         wrongAnswer = 0;
         unansweredAnswer = 0;
     }
-
-
 });

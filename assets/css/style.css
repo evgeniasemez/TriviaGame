@@ -1,7 +1,5 @@
 .text-centered{
     text-align: center;
-    /* margin: auto; */
-    /* width: 60%; */
     justify-content: center;
 }
 #startbutton{
@@ -39,9 +37,6 @@
 .resultCard{
     display: none;
 }
-/* .thirdcard{
-    display: none;
-} */
 
 .firstOptionClass:hover{
 background-color: #82c5db;
@@ -74,7 +69,7 @@ background-color: #82c5db;
     margin-top: 50px;
 }
 
-
+/* setting the animated title */
 @import url("//fonts.googleapis.com/css?family=Bungee+Shade");
 * {
   font-family: "Bungee Shade";
