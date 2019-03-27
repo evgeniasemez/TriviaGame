@@ -61,6 +61,9 @@ background-color: #82c5db;
 #correctAnswerFont{
     font-family: none;
 }
+.resultCard{
+    font-family: none;
+}
 .backgroundcolor{
     background-image: url("../images/triviaimage4.jpg");
 }
