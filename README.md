@@ -1,4 +1,5 @@
 # TriviaGame
+This is a web that uses moment and set time technique. Which allows you to go through question with a timer and have fun :) 
 
 1) Set the Home Page with the Start Button and a fency title-name!
 2) Clicking the Start Button should hide the Home Page and Navigate to the first question page
@@ -26,3 +27,4 @@
    Wrong answers
    Unanswered
    Sart Over button-link, which navigates back to the Home page with the Start Button
+
